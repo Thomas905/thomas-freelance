@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
 {% block title %}Thomas Clarisse{% endblock %}
 
@@ -12,7 +12,15 @@
                     <img src="img/profil.png" alt="">
                 </div>
             </div>
-
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert {{ label }}">
+                        <div class="{{ label }}">
+                            {{ message }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
             <h2 class="profile__name">Thomas Clarisse</h2>
             <h3 class="profile__profession">Développeur FullStack | Free-lance</h3>
 
@@ -266,40 +274,34 @@
                                     <span class="skills__level">Débutant</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="ri-checkbox-circle-line"></i>
-
-                                <div>
-                                    <h3 class="skills__name">Python</h3>
-                                    <span class="skills__level">Basic</span>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <i class="ri-checkbox-circle-line"></i>
-
-                                <div>
-                                    <h3 class="skills__name">Node Js</h3>
-                                    <span class="skills__level">Intermediate</span>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
         </div>
         <h1 class="text-center mt-5">Vous avez un projet ?</h1>
+
+        {{ form_start(form) }}
         <div class="form-group">
             <div class="row">
-                <input type="text" placeholder="Nom">
-                <input type="text" placeholder="Prénom">
-                <input type="text" placeholder="Société">
-                <textarea type="text" placeholder="Message"></textarea>
+                <label for="firstname">Votre prénom *</label>
+                {{ form_widget(form.firstname) }}
+                <label for="lastname">Votre nom *</label>
+                {{ form_widget(form.lastname) }}
+                <label for="email">Votre email *</label>
+                {{ form_widget(form.email) }}
+                <label for="company">Votre entreprise</label>
+                {{ form_widget(form.company) }}
+                <label for="title-message">Votre titre de message *</label>
+                {{ form_widget(form.titleMessage) }}
+                <label for="message">Votre message *</label>
+                {{ form_widget(form.message) }}
+                <div class="submit-button">
+                    <button class="button" type="submit">Envoyé</button>
+                </div>
             </div>
         </div>
+        {{ form_end(form) }}
     </section>
 </main>
 
