@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactFormType;
+use App\Repository\ProjectRepository;
 use App\Service\MailerManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(Request $request, EntityManagerInterface $entityManager, MailerManager $mailerManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, MailerManager $mailerManager, ProjectRepository $projectRepository): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactFormType::class, $contact);
@@ -27,10 +28,10 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'form' => $form->createView(),
+            'projects' => $projectRepository->findAll()
         ]);
     }
 }

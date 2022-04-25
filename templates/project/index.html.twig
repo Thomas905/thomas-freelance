@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos projets{% endblock %}
+
+{% block body %}
+    <h1>Vos projets</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Github</th>
+                <th>Site web</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.github }}</td>
+                <td>{{ project.website }}</td>
+                <td>{{ project.image }}</td>
+                <td>
+                    <a href="{{ path('app_project_edit', {'id': project.id}) }}">Modifer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas de projet trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_project_new') }}">Nouveau projet</a>
+{% endblock %}

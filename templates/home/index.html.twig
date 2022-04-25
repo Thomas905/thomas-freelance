@@ -12,6 +12,7 @@
                     <img src="img/profil.png" alt="">
                 </div>
             </div>
+            
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert {{ label }}">
@@ -57,6 +58,9 @@
             <a download="" href="pdf/thomasclarisse.pdf" class="button">
                 Télécharger mon CV <i class="ri-download-line"></i>
             </a>
+            <a href="#" class="button-warning">
+                Mes tarifs <i class="ri-money-euro-box-fill"></i>
+            </a>
         </div>
     </div>
 </header>
@@ -74,47 +78,27 @@
 
         <div class="filters__sections">
             <div class="projects__content grid filters__active" data-content id="projects">
-                <article class="projects__card">
-                    <img src="/img/project1.jpg" alt="" class="projects__img">
-
-                    <div class="projects__modal">
-                        <div>
-                            <span class="projects__subtitle">WebInCloudy</span>
-                            <h3 class="projects__title">Hébergement serveur virtuel</h3>
-                            <a href="#" class="projects__button button button__small">
-                                <i class="ri-link"></i>
-                            </a>
+                {% for project in projects %}
+                    <article class="projects__card">
+                        <img src="/uploads/images/projets/{{ project.image }}" alt="project picture" class="projects__img">
+                        <div class="projects__modal">
+                            <div>
+                                <span class="projects__subtitle">{{ project.name }}</span>
+                                <h3 class="projects__title">{{ project.description }}</h3>
+                                {% if project.website != null %}
+                                    <a href="{{ project.website }}" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                {% endif %}
+                                {% if project.github != null %}
+                                    <a href="{{ project.github }}" class="projects__button button button__small">
+                                        <i class="ri-github-fill"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                </article>
-
-                <article class="projects__card">
-                    <img src="/img/project2.jpg" alt="" class="projects__img">
-
-                    <div class="projects__modal">
-                        <div>
-                            <span class="projects__subtitle">CMusic</span>
-                            <h3 class="projects__title">Gestionnaire de prestation musical</h3>
-                            <a href="#" class="projects__button button button__small">
-                                <i class="ri-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="projects__card">
-                    <img src="/img/project3.jpg" alt="" class="projects__img">
-
-                    <div class="projects__modal">
-                        <div>
-                            <span class="projects__subtitle">MyBooks</span>
-                            <h3 class="projects__title">Collection de livre digital</h3>
-                            <a href="#" class="projects__button button button__small">
-                                <i class="ri-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                {% endfor %}
 
                 <article class="projects__card">
                     <img src="/img/project4.jpg" alt="" class="projects__img">
@@ -220,15 +204,6 @@
                                     <span class="skills__level">Expert</span>
                                 </div>
                             </div>
-
-                            <div class="skills__data">
-                                <i class="ri-checkbox-circle-line"></i>
-
-                                <div>
-                                    <h3 class="skills__name">FIGMA / XD</h3>
-                                    <span class="skills__level">Intermédiaire</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -272,6 +247,40 @@
                                 <div>
                                     <h3 class="skills__name">Express</h3>
                                     <span class="skills__level">Débutant</span>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="skills__area">
+                    <h3 class="skills__title">Logiciel</h3>
+
+                    <div class="skills__box">
+                        <div class="skills__group">
+
+                            <div class="skills__data">
+                                <i class="ri-checkbox-circle-line"></i>
+
+                                <div>
+                                    <h3 class="skills__name">MS Office</h3>
+                                    <span class="skills__level">Intermédiaire</span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <i class="ri-checkbox-circle-line"></i>
+
+                                <div>
+                                    <h3 class="skills__name">Figma / Adobe XD</h3>
+                                    <span class="skills__level">Intermédiaire</span>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <i class="ri-checkbox-circle-line"></i>
+
+                                <div>
+                                    <h3 class="skills__name">Photoshop</h3>
+                                    <span class="skills__level">Intermédiaire</span>
                                 </div>
                             </div>
                         </div> 

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification projet{% endblock %}
+
+{% block body %}
+    <div class="d-flex flex-column align-items-center">
+        <h1>Modification projet</h1>
+        {{ form_start(form) }}
+            <label for="name">Nom du projet</label>
+            {{ form_widget(form.name) }}
+            <label for="description">Description du projet</label>
+            {{ form_widget(form.description) }}
+            <label for="github">Github</label>
+            {{ form_widget(form.github) }}
+            <label for="website">Site web</label>
+            {{ form_widget(form.website) }}
+            <label for="website">Image du projet</label>
+            {{ form_widget(form.image) }}
+            <button type="submit" class="btn btn-primary">Créer</button>
+        {{ form_end(form) }}
+    {{ include('project/_delete_form.html.twig') }}
+
+    </div>
+    <a href="{{ path('app_project_index') }}">Revenir</a>
+
+{% endblock %}
