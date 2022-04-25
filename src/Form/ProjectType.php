@@ -28,12 +28,14 @@ class ProjectType extends AbstractType
                 ],
             ])
             ->add('github', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Nom du projet',
                     'class' => 'form-control',
                 ],
             ])
             ->add('website', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Nom du projet',
                     'class' => 'form-control',

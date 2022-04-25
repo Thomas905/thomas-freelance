@@ -12,7 +12,7 @@
                     <img src="img/profil.png" alt="">
                 </div>
             </div>
-            
+
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert {{ label }}">
@@ -23,7 +23,7 @@
                 {% endfor %}
             {% endfor %}
             <h2 class="profile__name">Thomas Clarisse</h2>
-            <h3 class="profile__profession">Développeur FullStack | Free-lance</h3>
+            <h3 class="profile__profession">CEO WebInCompany | Développeur Full Stack </h3>
 
             <ul class="profile__social">
                 <a href="https://www.linkedin.com/in/thomas-clarisse/" target="_blank" class="profile__social-link">
@@ -58,8 +58,8 @@
             <a download="" href="pdf/thomasclarisse.pdf" class="button">
                 Télécharger mon CV <i class="ri-download-line"></i>
             </a>
-            <a href="#" class="button-warning">
-                Mes tarifs <i class="ri-money-euro-box-fill"></i>
+            <a href="https://calendly.com/thomasclarisse/projet-webincompany" class="button-warning">
+                Prendre rendez-vous <i class="ri-calendar-2-fill"></i>
             </a>
         </div>
     </div>
@@ -99,48 +99,6 @@
                         </div>
                     </article>
                 {% endfor %}
-
-                <article class="projects__card">
-                    <img src="/img/project4.jpg" alt="" class="projects__img">
-
-                    <div class="projects__modal">
-                        <div>
-                            <span class="projects__subtitle">Powy</span>
-                            <h3 class="projects__title">Plateforme qui met en relation des étudiants avec des mentors pour leur permettre de monter en compétences</h3>
-                            <a href="#" class="projects__button button button__small">
-                                <i class="ri-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="projects__card">
-                    <img src="/img/project5.jpg" alt="" class="projects__img">
-
-                    <div class="projects__modal">
-                        <div>
-                            <span class="projects__subtitle">DansTonGroupe</span>
-                            <h3 class="projects__title">Site de rencontre pour musicien hors du commun</h3>
-                            <a href="#" class="projects__button button button__small">
-                                <i class="ri-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="projects__card">
-                    <img src="/img/project5.jpg" alt="" class="projects__img">
-
-                    <div class="projects__modal">
-                        <div>
-                            <span class="projects__subtitle">ManoBot</span>
-                            <h3 class="projects__title">ChatBot Virtuel en partenariat avec Mano-Mano</h3>
-                            <a href="#" class="projects__button button button__small">
-                                <i class="ri-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
             </div>
 
             <div class="skills__content grid" data-content id="skills">
@@ -176,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="skills__group">
                             <div class="skills__data">
                                 <i class="ri-checkbox-circle-line"></i>
@@ -249,7 +207,7 @@
                                     <span class="skills__level">Débutant</span>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
 
@@ -283,34 +241,14 @@
                                     <span class="skills__level">Intermédiaire</span>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <h1 class="text-center mt-5">Vous avez un projet ?</h1>
-
-        {{ form_start(form) }}
-        <div class="form-group">
-            <div class="row">
-                <label for="firstname">Votre prénom *</label>
-                {{ form_widget(form.firstname) }}
-                <label for="lastname">Votre nom *</label>
-                {{ form_widget(form.lastname) }}
-                <label for="email">Votre email *</label>
-                {{ form_widget(form.email) }}
-                <label for="company">Votre entreprise</label>
-                {{ form_widget(form.company) }}
-                <label for="title-message">Votre titre de message *</label>
-                {{ form_widget(form.titleMessage) }}
-                <label for="message">Votre message *</label>
-                {{ form_widget(form.message) }}
-                <div class="submit-button">
-                    <button class="button" type="submit">Envoyé</button>
-                </div>
-            </div>
-        </div>
-        {{ form_end(form) }}
+        <div class="calendly-inline-widget" data-url="https://calendly.com/thomasclarisse/projet-webincompany" style="min-width:320px;height:1300px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </section>
 </main>
 

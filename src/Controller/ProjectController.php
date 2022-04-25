@@ -30,8 +30,7 @@ class ProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('image')->getData();
-            $newFilename = 'project' . '-' . $project->getId() . $imageFile->guessExtension();
-
+            $newFilename = 'project' . '-' . $project->getName() . uniqid() . '.' . $imageFile->guessExtension();
             $imageFile->move(
                 $this->getParameter('images_directory'),
                 $newFilename
@@ -56,7 +55,7 @@ class ProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('image')->getData();
-            $newFilename = 'project' . '-' . $project->getId() . $imageFile->guessExtension();
+            $newFilename = 'project' . '-' . $project->getId() . '.' . $imageFile->guessExtension();
 
             $imageFile->move(
                 $this->getParameter('images_directory'),
